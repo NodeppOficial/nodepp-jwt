@@ -14,10 +14,10 @@ void onMain() {
         { "payl", "Hello World" }
     });
 
-    auto token = jwt::encode( json::stringify(obj), SECRET );
-    if( jwt::verify( token, SECRET ) ) { 
+    auto token = jwt::HS348::encode( json::stringify(obj), SECRET );
+    if( jwt::HS348::verify( token, SECRET ) ) { 
         conio::done( "valid token: " ); console::log( token );
-        console::log( "payload", jwt::decode( token ) );
+        console::log( "payload", jwt::HS348::decode( token ));
     } else {
         conio::error( "invalid token: " );
         console::log( token );

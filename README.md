@@ -19,10 +19,10 @@ void onMain() {
         { "payl", "Hello World" }
     });
 
-    auto token = jwt::encode( json::stringify(obj), SECRET );
-    if( jwt::verify( token, SECRET ) ) { 
+    auto token = jwt::HS256::encode( json::stringify(obj), SECRET );
+    if( jwt::HS256::verify( token, SECRET ) ) { 
         conio::done( "valid token: " ); console::log( token );
-        console::log( "payload", jwt::decode( token ) );
+        console::log( "payload", jwt::HS256::decode( token ) );
     } else {
         conio::error( "invalid token: " );
         console::log( token );
@@ -30,6 +30,12 @@ void onMain() {
 
 }
 ```
+
+## Algorithms
+
+- HS256
+- HS341
+- HS512
 
 ## Compilation
 `g++ -o main main.cpp -I ./include ; ./main`
