@@ -24,7 +24,7 @@
 namespace nodepp { namespace jwt { namespace HS256 {
 
     bool verify ( const string_t& token, const string_t& secret ){
-        try {
+        try { if( token.empty() ){ return false; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 ){ return false; }
@@ -63,6 +63,7 @@ namespace nodepp { namespace jwt { namespace HS256 {
     }
 
     string_t decode ( const string_t& token ){
+        if( token.empty() ){ return nullptr; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 )
@@ -79,7 +80,7 @@ namespace nodepp { namespace jwt { namespace HS256 {
 namespace nodepp { namespace jwt { namespace HS384 {
 
     bool verify ( const string_t& token, const string_t& secret ){
-        try {
+        try { if( token.empty() ){ return false; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 ){ return false; }
@@ -118,6 +119,7 @@ namespace nodepp { namespace jwt { namespace HS384 {
     }
 
     string_t decode ( const string_t& token ){
+        if( token.empty() ){ return nullptr; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 )
@@ -134,7 +136,7 @@ namespace nodepp { namespace jwt { namespace HS384 {
 namespace nodepp { namespace jwt { namespace HS512 {
 
     bool verify ( const string_t& token, const string_t& secret ){
-        try {
+        try { if( token.empty() ){ return false; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 ){ return false; }
@@ -173,6 +175,7 @@ namespace nodepp { namespace jwt { namespace HS512 {
     }
 
     string_t decode ( const string_t& token ){
+        if( token.empty() ){ return nullptr; }
 
         auto data = regex::split( token, '.' );
         if ( data.size() != 3 )
