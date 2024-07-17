@@ -7,7 +7,7 @@ A simple JWT implementation in Nodepp
 
 #include <nodepp/nodepp.h>
 #include <nodepp/json.h>
-#include <jwt.h>
+#include <jwt/jwt.h>
 
 using namespace nodepp;
 
