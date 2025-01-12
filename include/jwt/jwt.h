@@ -247,7 +247,7 @@ namespace nodepp { namespace jwt {
         elif( type=="HS256" ){ return HS256::encode( token, secret ); }
         elif( type=="HS384" ){ return HS384::encode( token, secret ); }
         elif( type=="HS512" ){ return HS512::encode( token, secret ); }
-        process::error("invalid token");  
+        process::error("invalid token"); return nullptr;
     }
 
 }}
